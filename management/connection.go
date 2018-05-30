@@ -26,6 +26,9 @@ type Connection struct {
 	// "yammer" or "yandex".
 	Strategy string `json:"strategy,omitempty"`
 
+	// Waad options.
+	WaadOptions *ConnectionWaadOptions `json:"waad_options,omitempty"`
+
 	// Options for validation.
 	Options *ConnectionOptions `json:"options,omitempty"`
 
@@ -42,6 +45,24 @@ type Connection struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+// ConnectionWaadOptions this options should be used for strategy waad
+type ConnectionWaadOptions struct {
+	ClientID           string                 `json:"client_id,omitempty"`
+	ClientSecret       string                 `json:"client_secret,omitempty"`
+	TenantDomain       string                 `json:"tenant_domain,omitempty"`
+	DomainAliases      map[string]interface{} `json:"domain_aliases,omitempty"`
+	UseWsfed           bool                   `json:"use_wsfed,omitempty"`
+	WaadProtocol       string                 `json:"waad_protocol,omitempty"`
+	WaadCommonEndpoint bool                   `json:"waad_common_endpoint,omitempty"`
+	AppID              string                 `json:"app_id,omitempty"`
+	AppDomain          string                 `json:"app_domain,omitempty"`
+	APIEnableUsers     bool                   `json:"api_enable_users,omitempty"`
+	BasicProfile       bool                   `json:"basic_profile,omitempty"`
+	ExtGroups          bool                   `json:"ext_groups,omitempty"`
+	ExtProfile         bool                   `json:"ext_profile,omitempty"`
+}
+
+// ConnectionOptions general options
 type ConnectionOptions struct {
 
 	// Options for validation.
